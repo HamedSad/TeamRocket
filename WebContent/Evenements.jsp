@@ -7,7 +7,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.SQLException"%>
-<%@page import="projet.Evenement"%>
+<%@page import="projet.CreationEvenement"%>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -19,71 +19,86 @@
 
 <body>
 
-<jsp:include page="Header.html"></jsp:include>
+	<jsp:include page="Header.html"></jsp:include>
 
-<form action="RechercheEvenement.jsp"><p>Rechercher un evenement ou une ville :
-<input type="text" name="search"><input type="submit" value="Trouver!"></p>
-</form>
+	<form action="RechercheEvenement.jsp">
+		<p>Rechercher un événement ou une ville : <input type="text" name="search"><input type="submit" value="Trouver!"></p>
+	</form>
 
-<h2><font><strong>Nos evenements</strong></font></h2>
+	<h2>
+		<font><strong>Nos événements</strong></font>
+	</h2>
 
-<%
-	try {
+	<%
+		try {
 		Class.forName("com.mysql.jdbc.Driver");
-		
-		String url = "jdbc:mysql://localhost/teamrocket";
-		String user= "root";
-		String pwd = "System84";
-		
-		Connection cn = (Connection) DriverManager.getConnection(url, user, pwd);
-		
-		Statement st = cn.createStatement();
-		
-		String sql = "SELECT * FROM evenement";
-		
-		ResultSet result = (ResultSet) st.executeQuery(sql);
-		
-		ArrayList<Evenement> listeEvenement = new ArrayList<Evenement>(); 
-		
 
-	
-		while(result.next()) {
-			Evenement affichage = new Evenement();
+		String url = "jdbc:mysql://localhost/teamrocket";
+		String user = "root";
+		String pwd = "System84";
+
+		Connection cn = (Connection) DriverManager.getConnection(url, user, pwd);
+
+		Statement st = cn.createStatement();
+
+		String sql = "SELECT * FROM evenement";
+
+		ResultSet result = (ResultSet) st.executeQuery(sql);
+
+		ArrayList<CreationEvenement> listeEvenement = new ArrayList<CreationEvenement>();
+
+		while (result.next()) {
+			CreationEvenement affichage = new CreationEvenement();
 			
+			affichage.setId(result.getString("IDEve"));
 			affichage.setTitre(result.getString("titre"));
-			affichage.setDate(result.getString("date"));
+			affichage.setDateEve(result.getString("dateEve"));
 			affichage.setCreateur(result.getString("createur"));
 			affichage.setLieu(result.getString("lieu"));
+			affichage.setMontant(result.getString("MontantActu"));
+			affichage.setTypeEve(result.getString("typeEve"));
+			affichage.setTextEve(result.getString("textEve"));
 			
+
 			listeEvenement.add(affichage);
+			
+			String id;
+			String titre;
+			String dateEve;
+			String createur;
+			String lieu;
+			String montant;
+			String typeEve;
+			String textEve;
 		}
-		
-		for(int i = 0 ; i < listeEvenement.size(); i ++) {
-		
+
+		for (int i = 0; i < listeEvenement.size(); i++) {
+
 			out.print("<ul>");
-			out.print("Le ");
-			out.print(listeEvenement.get(i).getDate());
-			out.print(" aura lieu : ");
-			out.print(listeEvenement.get(i).getTitre());				
+			out.print("L'événement : ");
+			out.print(listeEvenement.get(i).getTitre());
+			out.print(" aura lieu le : ");
+			out.print(listeEvenement.get(i).getDateEve());
 			out.print(" à ");
 			out.print(listeEvenement.get(i).getLieu());
 			out.print(". Evenement créé par ");
 			out.print(listeEvenement.get(i).getCreateur());
+			out.print("<a href=AffichageEvenement.jsp>  Voir plus...</a>");
 			out.print("</ul>");
 
-		}	
-			
-	} 
-	catch (ClassNotFoundException e) {
+		}
+
+			} catch (ClassNotFoundException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
-	} catch (SQLException e) {
+			} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
-	}
-%>
-<hr>
-<a href=CreationEvenement.jsp>Créer un evenement</a>
-<jsp:include page="Footer.html"></jsp:include>
+			}
+	%>
+
+	<a href=CreationEvenement.jsp>Créer un événement</a>
+	<hr>
+	<jsp:include page="Footer.html"></jsp:include>
 </body>
 </html>

@@ -43,7 +43,7 @@
         result = st.executeQuery();
 
 		if (result.next()) {
-			out.print("Valid login!");
+			out.print("Valid login! ");
 		} else {
 			out.print("Invalid login!");
 		}

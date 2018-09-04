@@ -26,7 +26,38 @@
 		String em = request.getParameter("email");
 		
 
-		if (psd.length() > 5  && mdp.length() > 8  &&  em.length() > 10 && mdp.equals(mdp2))
+		if (psd.length() < 5 ) { 
+			out.print("Le pseudo doit comporter au moins 5 caractères <br>");
+			%>
+			<a href=Register.jsp>Retour à la page d'identification</a>
+			<%
+		} 
+		
+		else if (mdp.length() < 8) {
+			out.print("Le mot de passe doit comporter au moins 8 caractères <br>");
+			%>
+			<a href=Register.jsp>Retour à la page d'identification</a>
+			<%
+		}
+			
+		else if (em.length() < 10) {
+			
+			out.print("email invalide <br>");
+			%>
+			<a href=Register.jsp>Retour à la page d'identification</a>
+			<%
+		}
+		
+		else if ( ! mdp.equals(mdp2)){
+			
+			out.print("Les emails ne sont pas identiques <br>");
+			%>
+			<a href=Register.jsp>Retour à la page d'identification</a>
+			<%
+		}
+		else
+			
+			
 			{ 
 		
 		try {
