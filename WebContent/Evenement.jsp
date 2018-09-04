@@ -21,7 +21,7 @@
 
 <jsp:include page="Header.html"></jsp:include>
 
-<form action="evenementRecherche.jsp"><p>Rechercher un evenement : 
+<form action="RechercheEvenement.jsp"><p>Rechercher un evenement ou une ville :
 <input type="text" name="search"><input type="submit" value="Trouver!"></p>
 </form>
 
@@ -83,6 +83,7 @@
 	}
 %>
 <hr>
+<a href=CreationEvenement.jsp>Créer un evenement</a>
 <jsp:include page="Footer.html"></jsp:include>
 </body>
 </html>

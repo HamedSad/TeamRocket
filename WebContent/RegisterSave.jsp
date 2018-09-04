@@ -22,9 +22,11 @@
 	<%
 		String psd = request.getParameter("pseudo");
 		String mdp = request.getParameter("mdp");
+		String mdp2 = request.getParameter("mdp2");
 		String em = request.getParameter("email");
+		
 
-		if (psd.length() > 5  && mdp.length() > 8  &&em.length() > 10 )
+		if (psd.length() > 5  && mdp.length() > 8  &&  em.length() > 10 && mdp.equals(mdp2))
 			{ 
 		
 		try {
@@ -55,7 +57,8 @@
 			e.printStackTrace();
 			out.print("Erreur 2");
 		}
-		}
+	}
+		
 	%>
 
 </body>
