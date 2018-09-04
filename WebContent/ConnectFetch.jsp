@@ -5,7 +5,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.SQLException"%>
-<%@page import="Projet.UserModel"%>
+<%@page import="projet.userModel"%>
 <%@page import="java.sql.*"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">

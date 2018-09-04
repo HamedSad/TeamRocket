@@ -7,7 +7,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.SQLException"%>
-<%@page import="Projet.UserModel"%>
+<%@page import="projet.userModel"%>
 <%@page import="java.sql.*"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -24,17 +24,14 @@
 		String mdp = request.getParameter("mdp");
 		String em = request.getParameter("email");
 
-		if (psd.length() > 5  && 
-			mdp.length() > 8  &&
-			em.length() > 10 )
+		if (psd.length() > 5  && mdp.length() > 8  &&em.length() > 10 )
 			{ 
-		
 		
 		try {
 
 			Class.forName("com.mysql.jdbc.Driver");
 
-			String url = "jdbc:mysql://localhost:3306/teamRocket";
+			String url = "jdbc:mysql://localhost:3306/teamrocket";
 			String user = "root";
 			String pwd = "System84";
 

@@ -1,6 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"pageEncoding="ISO-8859-1"%>
-<%@page import="java.sql.*"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="projet.Evenement"%>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -11,54 +21,68 @@
 
 <jsp:include page="Header.html"></jsp:include>
 
+<form action="evenementRecherche.jsp"><p>Rechercher un evenement : 
+<input type="text" name="search"><input type="submit" value="Trouver!"></p>
+</form>
 
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="java.util.ArrayList"%>
-
-
+<h2><font><strong>Nos evenements</strong></font></h2>
 
 <%
-	String url = "jdbc:mysql://localhost:3306/teamrocket";
-	String user = "root";
-	String pwd = "System84";
-
 	try {
 		Class.forName("com.mysql.jdbc.Driver");
-	} catch (ClassNotFoundException e) {
+		
+		String url = "jdbc:mysql://localhost/teamrocket";
+		String user= "root";
+		String pwd = "System84";
+		
+		Connection cn = (Connection) DriverManager.getConnection(url, user, pwd);
+		
+		Statement st = cn.createStatement();
+		
+		String sql = "SELECT * FROM evenement";
+		
+		ResultSet result = (ResultSet) st.executeQuery(sql);
+		
+		ArrayList<Evenement> listeEvenement = new ArrayList<Evenement>(); 
+		
+
+	
+		while(result.next()) {
+			Evenement affichage = new Evenement();
+			
+			affichage.setTitre(result.getString("titre"));
+			affichage.setDate(result.getString("date"));
+			affichage.setCreateur(result.getString("createur"));
+			affichage.setLieu(result.getString("lieu"));
+			
+			listeEvenement.add(affichage);
+		}
+		
+		for(int i = 0 ; i < listeEvenement.size(); i ++) {
+		
+			out.print("<ul>");
+			out.print("Le ");
+			out.print(listeEvenement.get(i).getDate());
+			out.print(" aura lieu : ");
+			out.print(listeEvenement.get(i).getTitre());				
+			out.print(" à ");
+			out.print(listeEvenement.get(i).getLieu());
+			out.print(". Evenement créé par ");
+			out.print(listeEvenement.get(i).getCreateur());
+			out.print("</ul>");
+
+		}	
+			
+	} 
+	catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-
-	Connection connection = null;
-	Statement statement = null;
-	ResultSet resultSet = null;
 %>
-
-<h2><strong>Nos evenements</strong></h2>
-
-
-	<%
-		try {
-			connection = DriverManager.getConnection(url, user, pwd);
-			statement = connection.createStatement();
-			String sql = "SELECT * FROM evenement";
-
-			resultSet = statement.executeQuery(sql);
-			while (resultSet.next()) {
-	%>
-	<tr>
-		<td><%=resultSet.getString("titre")%></td>
-		<td><%=resultSet.getString("date")%></td>
-		<td><%=resultSet.getString("createur")%></td>
-		<td><%=resultSet.getString("lieu")%></td>
-	</tr>
-	<% 	}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	%>
-
-<table/>
+<hr>
+<jsp:include page="Footer.html"></jsp:include>
+</body>
+</html>

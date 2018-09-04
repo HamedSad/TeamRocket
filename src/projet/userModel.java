@@ -1,6 +1,6 @@
-package Projet;
+package projet;
 
-public class UserModel {
+public class userModel {
 
 	String pseudo;
 	String email;

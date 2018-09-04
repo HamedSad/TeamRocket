@@ -1,6 +1,6 @@
-package Projet;
+package projet;
 
-public class EvenementModel {
+public class Evenement {
 	
 	String titre;
 	String date;

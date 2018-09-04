@@ -22,7 +22,7 @@
 		<table>
 			<tr><td>Pseudo</td><td><input type="text" name="pseudo"></td></tr>
 			<tr><td>Mot de passe</td><td><input type="password" name="mdp"></td></tr>
-			<tr><td><input type="reset" value="Effacer"><input type="submit" value="Envoyer!"></td></tr>
+			<tr><td><input type="reset" value="Effacer"><input type="submit" value="Se connecter!"></td></tr>
 		</table>
 	</form>
 
