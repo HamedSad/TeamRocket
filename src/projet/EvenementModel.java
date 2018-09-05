@@ -1,19 +1,24 @@
 package projet;
 
-public class CreationEvenement {
+public class EvenementModel {
 	
-	String id;
+	int id;
 	String titre;
 	String dateEve;
 	String createur;
 	String lieu;
-	String montant;
+	double montantObjectif;
+	double montantActuel;
 	String typeEve;
 	String textEve;
-	public String getId() {
+	int capMax;
+	int nbreInscrits;
+	
+	
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getTitre() {
@@ -40,11 +45,17 @@ public class CreationEvenement {
 	public void setLieu(String lieu) {
 		this.lieu = lieu;
 	}
-	public String getMontant() {
-		return montant;
+	public double getMontantObjectif() {
+		return montantObjectif;
 	}
-	public void setMontant(String montant) {
-		this.montant = montant;
+	public void setMontantObjectif(double montantObjectif) {
+		this.montantObjectif = montantObjectif;
+	}
+	public double getMontantActuel() {
+		return montantActuel;
+	}
+	public void setMontantActuel(double montantActuel) {
+		this.montantActuel = montantActuel;
 	}
 	public String getTypeEve() {
 		return typeEve;
@@ -58,7 +69,19 @@ public class CreationEvenement {
 	public void setTextEve(String textEve) {
 		this.textEve = textEve;
 	}
-
+	public int getCapMax() {
+		return capMax;
+	}
+	public void setCapMax(int capMax) {
+		this.capMax = capMax;
+	}
+	public int getNbreInscrits() {
+		return nbreInscrits;
+	}
+	public void setNbreInscrits(int nbreInscrits) {
+		this.nbreInscrits = nbreInscrits;
+	}
+	
 	
 	
 }
