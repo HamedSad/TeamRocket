@@ -28,38 +28,31 @@
 
 		if (psd.length() < 5 ) { 
 			out.print("Le pseudo doit comporter au moins 5 caractères <br>");
-			%>
-			<a href=Register.jsp>Retour à la page d'identification</a>
-			<%
+			
+			%><a href=Register.jsp>Retour à la page d'identification</a><%
 		} 
 		
 		else if (mdp.length() < 8) {
 			out.print("Le mot de passe doit comporter au moins 8 caractères <br>");
-			%>
-			<a href=Register.jsp>Retour à la page d'identification</a>
-			<%
+			
+			%><a href=Register.jsp>Retour à la page d'identification</a><%
 		}
 			
 		else if (em.length() < 10) {
 			
 			out.print("email invalide <br>");
-			%>
-			<a href=Register.jsp>Retour à la page d'identification</a>
-			<%
+			
+			%><a href=Register.jsp>Retour à la page d'identification</a><%
 		}
 		
 		else if ( ! mdp.equals(mdp2)){
 			
 			out.print("Les emails ne sont pas identiques <br>");
-			%>
-			<a href=Register.jsp>Retour à la page d'identification</a>
-			<%
+			
+			%><a href=Register.jsp>Retour à la page d'identification</a><%
 		}
-		else
-			
-			
-			{ 
-		
+		else {
+				
 		try {
 
 			Class.forName("com.mysql.jdbc.Driver");
@@ -77,9 +70,9 @@
 			int i = ps.executeUpdate();
 
 			if (i > 0) {
-	%>
-	<jsp:forward page="Register.jsp"></jsp:forward>
-	<%
+			
+				out.print("Vous êtes désormais inscrit <a href=Connect.jsp>Maintenant connectez-vous!</a>" );
+			
 		} else {
 				out.print("Erreur 1");
 			}
@@ -88,9 +81,8 @@
 			e.printStackTrace();
 			out.print("Erreur 2");
 		}
-	}
+	}	
 		
 	%>
-
 </body>
 </html>

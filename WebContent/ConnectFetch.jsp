@@ -43,9 +43,9 @@
         result = st.executeQuery();
 
 		if (result.next()) {
-			out.print("Valid login! ");
+			%><jsp:forward page="Evenements.jsp"></jsp:forward><%
 		} else {
-			out.print("Invalid login!");
+			out.print("Mot de passe incorrect! <a href=Connect.jsp>Revenir à la connexion</a>");
 		}
 
 	}

@@ -24,8 +24,6 @@
 
 <a href=Connect.jsp>Pour se connecter</a>
 
-<a href=Evenement.jsp>Evenements</a>
-
 <hr>
 
 <jsp:include page="Footer.html"></jsp:include>

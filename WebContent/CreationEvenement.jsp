@@ -15,10 +15,11 @@
 		<table>
 			<tr><td>Titre</td><td><input type="text" name="titre"></td></tr>
 			<tr><td>Date</td><td><input type="date" name="date"></td></tr>
-			<tr><td>Pseudo</td><td><input type="text" name="createur"></td></tr>
+			<tr><td>Montant souhaité</td><td><input type="text" name="montant"></td></tr>
 			<tr><td>Lieu</td><td><input type="text" name="lieu"></td></tr>
-			<tr><td>Montant</td><td><input type="text" name="montant"></td></tr>
-			<tr><td>Type d'événement</td><td><select name="type">
+			<tr><td>Nombre maximum d'inscrits</td><td><input type="text" name="capacite"></td></tr>
+			<tr><td>Type d'événement</td><td>
+				<select name="type">
 						<option>Externe</option>
 						<option>Interne</option>
 				</select></td></tr>
