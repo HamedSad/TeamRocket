@@ -72,7 +72,7 @@
 		out.print("<br>Aura lieu le : ");
 		out.print(listeEvenementUnitaire.get(i).getDateEve());
 		out.print("<br>A : ");
-		out.print(listeEvenementUnitaire.get(i).getTitre());
+		out.print(listeEvenementUnitaire.get(i).getLieu());
 		out.print("<br>Cet événement à besoin de  : ");
 		out.print(listeEvenementUnitaire.get(i).getMontantObjectif());
 		out.print("euros. Evenement créé par ");

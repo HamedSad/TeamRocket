@@ -64,6 +64,7 @@
 		affichage.setDateEve(result.getString("dateEve"));
 		affichage.setCreateur(result.getString("createur"));
 		affichage.setLieu(result.getString("lieu"));
+		affichage.setMontantObjectif(result.getDouble("montantObjectif"));
 
 		listeRechercheEvenement.add(affichage);
 			}
@@ -77,8 +78,6 @@
 		out.print(listeRechercheEvenement.get(i).getTitre());
 		out.print(" à ");
 		out.print(listeRechercheEvenement.get(i).getLieu());
-		out.print(". Evenement créé par ");
-		out.print(listeRechercheEvenement.get(i).getCreateur());
 		out.print("</ul>");
 	}
 		
@@ -91,7 +90,8 @@
 		}
 	%>
 
-	<a href=CreationEvenement.jsp>Créer un evenement</a>
+	<a href=CreationEvenement.jsp>Créer un événement</a>
+	<a href=Evenements.jsp>Retour aux événements</a>
 	<hr>
 	<jsp:include page="Footer.html"></jsp:include>
 </body>

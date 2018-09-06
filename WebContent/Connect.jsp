@@ -25,7 +25,6 @@
 	</form>
 
 <a href=Register.jsp>Pour s'inscrire</a>
-<a href=CreationEvenement.jsp>Créer un événement</a>
 <hr>
 <jsp:include page="Footer.html"></jsp:include>
 
