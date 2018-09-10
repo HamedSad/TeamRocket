@@ -71,7 +71,7 @@
 
 			if (i > 0) {
 			
-				out.print("Vous êtes désormais inscrit <a href=Connect.jsp>Maintenant connectez-vous!</a>" );
+				%><jsp:forward page="EvenementsAffichage.jsp"></jsp:forward><%
 			
 		} else {
 				out.print("Erreur 1");

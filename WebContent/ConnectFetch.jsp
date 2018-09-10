@@ -43,7 +43,7 @@
         result = st.executeQuery();
 
 		if (result.next()) {
-			%><jsp:forward page="Evenements.jsp"></jsp:forward><%
+			%><jsp:forward page="EvenementsAffichage.jsp"></jsp:forward><%
 		} else {
 			out.print("Mot de passe incorrect! <a href=Connect.jsp>Revenir à la connexion</a>");
 		}
