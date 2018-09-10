@@ -41,7 +41,7 @@
 
 			Statement st = cn.createStatement();
 
-			String sql = "SELECT * FROM evenement";
+			String sql = "SELECT * FROM evenement ORDER BY dateEve";
 
 			ResultSet result = (ResultSet) st.executeQuery(sql);
 

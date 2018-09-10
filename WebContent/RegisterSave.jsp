@@ -71,7 +71,7 @@
 
 			if (i > 0) {
 			
-				out.print("Vous êtes désormais inscrit <a href=Connect.jsp>Maintenant connectez-vous!</a>" );
+				%><jsp:forward page="EvenementsAffichage.jsp"></jsp:forward><%
 			
 		} else {
 				out.print("Erreur 1");
@@ -79,7 +79,8 @@
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			out.print("Erreur 2");
+			out.print("Désolé, ce pseudo est déjà utilisé<br>");
+			%><a href=Register.jsp>Retour à la page d'identification</a><%
 		}
 	}	
 		

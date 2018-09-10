@@ -51,7 +51,6 @@
 
 			String titre;
 			String date;
-			String createur;
 			String lieu;
 
 			out.print("Resultats correspondants à votre recherche :<br><br>");
@@ -62,7 +61,6 @@
 
 		affichage.setTitre(result.getString("titre"));
 		affichage.setDateEve(result.getString("dateEve"));
-		affichage.setCreateur(result.getString("createur"));
 		affichage.setLieu(result.getString("lieu"));
 
 		listeRechercheEvenement.add(affichage);
@@ -70,16 +68,14 @@
 
 			for (int i = 0; i < listeRechercheEvenement.size(); i++) {
 
-		out.print("<ul>");
-		out.print("Le ");
-		out.print(listeRechercheEvenement.get(i).getDateEve());
-		out.print(" aura lieu : ");
-		out.print(listeRechercheEvenement.get(i).getTitre());
-		out.print(" à ");
-		out.print(listeRechercheEvenement.get(i).getLieu());
-		out.print(". Evenement créé par ");
-		out.print(listeRechercheEvenement.get(i).getCreateur());
-		out.print("</ul>");
+		System.out.println("<ul>");
+		System.out.println("Le ");
+		System.out.println(listeRechercheEvenement.get(i).getDateEve());
+		System.out.println(" aura lieu : ");
+		System.out.println(listeRechercheEvenement.get(i).getTitre());
+		System.out.println(" à ");
+		System.out.println(listeRechercheEvenement.get(i).getLieu());
+		System.out.println("</ul>");
 	}
 		
 			} catch (ClassNotFoundException e) {
@@ -91,7 +87,8 @@
 		}
 	%>
 
-	<a href=CreationEvenement.jsp>Créer un evenement</a>
+	<a href=CreationEvenement.jsp>Créer un événement</a>
+	<a href=Evenements.jsp>Retour aux événements</a>
 	<hr>
 	<jsp:include page="Footer.html"></jsp:include>
 </body>
